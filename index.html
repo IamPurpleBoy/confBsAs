@@ -19,7 +19,7 @@
     <!-- Enlace al archivo CSS de Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" crossorigin="anonymous">
 
-    <!-- Agrega aquí tus estilos CSS -->
+    
 </head>
 
 <body>
@@ -61,32 +61,50 @@
                     Comprar tickets
                 </button>
                 </div>
-                <div class="modal fade" id="miModal" tabindex="-1" role="dialog" aria-labelledby="miModalLabel"
+                <div class="modal fade bg-secondary" id="miModal" tabindex="-1" role="dialog" aria-labelledby="miModalLabel"
                     aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered" role="document">
-                        <div class="modal-content">
+                        <div class="modal-content bg-dark text-light">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="miModalLabel">Formulario de Compra</h5>
                                 <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <div class="modal-body">
+                            <div class="modal-body bg-dark">
                                 <form>
-                                    <div class="form-group">
-                                        <label for="nombre">Nombre:</label>
+                                    <div class="form-group mb-3">
+                                        
                                         <input type="text" class="form-control" id="nombre"
                                             placeholder="Ingrese su nombre">
                                     </div>
-                                    <div class="form-group">
-                                        <label for="apellido">Apellido:</label>
+                                    <div class="form-group mb-3">
+                                       
                                         <input type="text" class="form-control" id="apellido"
                                             placeholder="Ingrese su apellido">
                                     </div>
-                                    <div class="form-group">
-                                        <label for="email">Email:</label>
+                                    <div class="form-group mb-3">
+                                       
                                         <input type="email" class="form-control" id="email"
                                             placeholder="Ingrese su email">
+                                    </div>
+
+                                    <div class="form-group mb-3">
+                                       
+                                        <div>
+                                            <input type="radio" id="option1" name="options" value="option1">
+                                            <label for="option1">Opción 1</label>
+                                          </div>
+                                          
+                                          <div>
+                                            <input type="radio" id="option2" name="options" value="option2">
+                                            <label for="option2">Opción 2</label>
+                                          </div>
+                                          
+                                          <div>
+                                            <input type="radio" id="option3" name="options" value="option3">
+                                            <label for="option3">Opción 3</label>
+                                          </div>
                                     </div>
                                     <button type="submit" class="btn btn-primary">Enviar</button>
                                 </form>
@@ -198,17 +216,17 @@
                         <div class="carousel-inner">
                             <div class="carousel-item active">
                                 <div class="d-flex align-items-center h-75">
-                                    <img src="./imagenes/honolulu.jpg" class="d-block w-100" alt="...">
+                                    <img src="imagenes/honolulu.jpg" class="d-block w-100" alt="...">
                                 </div>
                             </div>
                             <div class="carousel-item">
                                 <div class="d-flex align-items-center h-75">
-                                    <img src="./imagenes/honolulu.jpg" class="d-block w-100" alt="...">
+                                    <img src="imagenes/honolulu.jpg" class="d-block w-100" alt="...">
                                 </div>
                             </div>
                             <div class="carousel-item">
                                 <div class="d-flex align-items-center h-75">
-                                    <img src="./imagenes/honolulu.jpg" class="d-block w-100" alt="...">
+                                    <img src="imagenes/honolulu.jpg" class="d-block w-100" alt="...">
                                 </div>
                             </div>
                         </div>
@@ -263,7 +281,18 @@
     </main>
 
     <footer>
-        <!-- Agrega aquí el contenido de tu footer -->
+        <div class="container-flex">
+            <div class="row bg-secondary">
+                <div class="col-md-6 align-items-center">
+                <p><a href=""></a>A</p>
+                <p><a href=""></a>B</p>
+                </div>
+                <div class="col-md-6 align-text-center">
+                <p><a href=""></a>C</p>
+                <p><a href=""></a>D</p>
+                </div>
+            </div>
+        </div>
     </footer>
 
     <!-- Enlace al archivo JavaScript de Bootstrap 5 -->
