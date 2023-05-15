@@ -1,0 +1,13 @@
+
+.modal-content {
+    border: none;
+    box-shadow: none;
+  }
+
+.modal-content::placeholder {
+    color: red; /* Cambia el color del marcador de posición */
+  }
+
+h1 {
+  color: chartreuse;
+}
