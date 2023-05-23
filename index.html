@@ -31,7 +31,7 @@
         <!-- NavBar de la Página -->
         <nav class="navbar navbar-expand-md navbar-dark bg-dark">
             <div class="container-fluid" style="justify-content: space-around;">
-                <div class="col-3">
+                <div class="col-3 d-none d-md-block">
                     <a class="navbar-brand text-light" href="#">
                         <img src="imagenes/codoacodo.png" alt="Logo" width="33%"
                             class="d-inline-block align-text-center">
@@ -39,9 +39,10 @@
                     </a>
                 </div>
                 <div class="container-flex">
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText2"
+                    <button class="navbar-toggler mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText2"
                         aria-controls="navbarText2" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
+                        <span><img src="imagenes/codoacodo.png" alt="Logo" width="33%"
+                            class="d-inline-block align-text-center">Conf Bs As</span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarText2">
                         <ul class="navbar-nav auto mb-2 mb-xs-0">
@@ -105,17 +106,13 @@
                                                     placeholder="Ingrese DNI" required>
                                         </div>
                                         </div>
-                                        <div class="col-4">
-                                            <div class="dropdown">
-                                                <button class="btn btn-secondary dropdown-toggle text-dark" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                  Categoría
-                                                </button>
-                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                  <a class="dropdown-item" href="#">Action</a>
-                                                  <a class="dropdown-item" href="#">Another action</a>
-                                                  <a class="dropdown-item" href="#">Something else here</a>
-                                                </div>
-                                              </div>
+                                        <div class="col-4 ">
+                                            <select class="form-select bg-dark text-secondary" aria-label="Default select example">
+                                                <option selected>Categoría</option>
+                                                <option value="80">Estudiante</option>
+                                                <option value="50">Trainee</option>
+                                                <option value="15">Junior</option>
+                                              </select>
                                         </div>
                                         
                                         <div class="col-8">
@@ -152,7 +149,7 @@
                                                 <input type="radio" id="credito" name="options" value="15">
                                                 <label for="option2">Crédito</label>
                                             </div>
-                                            
+                                            <div id="mensaje"></div>
 
                                         </div>
                                         <div class="alert alert-success text-center" role="alert">
@@ -161,7 +158,7 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-6">
-                                    <button type="submit"
+                                    <button type="reset"
                                         class="btn btn-outline-danger btn-block mx-auto d-block text-light">Borrar</button>
                                         </div>
                                         <div class="col-6">
@@ -223,16 +220,16 @@
 
                 <section class="container">
                     <div class="text-center">
-                        <p class="mb-3">CONOCE A LOS</p>
-                        <h3 class="mb-5">ORADORES</h3>
+                        <p class="mb-1">CONOCE A LOS</p>
+                        <h2 class="mb-3">ORADORES</h2>
                     </div>
                     <div class="row justify-content-center">
                         <div class="col-md-4 mb-5">
                             <div class="card h-100">
                                 <img src="imagenes/steve.jpg" class="card-img-top" alt="Steve Jobs">
                                 <div class="card-body">
-                                    <button class="btn btn-primary btn-sm mb-1">Javascript</button>
-                                    <button class="btn btn-warning btn-sm mb-1">React</button>
+                                    <button class="btn btn-warning btn-sm mb-1">JavaScript</button>
+                                    <button class="btn btn-info btn-sm mb-1 text-light">React</button>
                                     <h5 class="card-title">Steve Jobs</h5>
                                     <p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit.
                                         Minima quas doloremque ab eos aut, quae ullam numquam velit inventore placeat
@@ -244,9 +241,9 @@
                             <div class="card h-100">
                                 <img src="imagenes/bill.jpg" class="card-img-top" alt="Bill Gates">
                                 <div class="card-body">
-                                    <button class="btn btn-primary btn-sm mb-1">Javascript</button>
-                                    <button class="btn btn-warning btn-sm mb-1">React</button>
-                                    <h5 class="card-title">Título de la card</h5>
+                                    <button class="btn btn-warning btn-sm mb-1">JavaScript</button>
+                                    <button class="btn btn-info btn-sm mb-1 text-light">React</button>
+                                    <h5 class="card-title">Bill Gates</h5>
                                     <p class="card-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit.
                                         Impedit, nulla maxime vero iste consequuntur earum libero. Dolores aut facilis,
                                         molestias inventore optio aperiam ea quod autem nobis molestiae totam quos..</p>
@@ -259,7 +256,7 @@
                                 <div class="card-body">
                                     <button class="btn btn-secondary btn-sm mb-1">Negocios</button>
                                     <button class="btn btn-danger btn-sm mb-1">Startups</button>
-                                    <h5 class="card-title">Título de la card</h5>
+                                    <h5 class="card-title">Ada Lovelace</h5>
                                     <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.
                                         Architecto officiis obcaecati iure praesentium libero, modi nam quod blanditiis
                                         illo porro maxime eius atque placeat mollitia, voluptate ab molestias quasi
@@ -272,9 +269,10 @@
             </main>
         </section>
         <!-- Sección de Informacion de Evento -->
+        <div>
         <section class="container-flex" style="display:flex;">
-            <div class="row align-items-center">
-                <div class="col-md-6">
+            <div class="row align-items-center no-gutters">
+                <div class="col-lg-6 px-0">
                     <!-- Carousel de imagenes con Imagenes de Conferencia -->
                     <div id="carouselSlidesOnly" class="carousel slide carousel-fade" data-bs-ride="carousel">
                         <div class="carousel-inner">
@@ -297,71 +295,96 @@
                     </div>
                 </div>
                 <!-- Informacion de Evento -->
-                <div class="col-md-6 bg-dark text-light" style="align-self: auto;">
+                <div class="col-lg-6 d-flex flex-column bg-dark text-light px-0" id="divnero">
                     <h3 class="mb-3">Bs As - Octubre</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam iaculis tellus in orci pharetra,
+                    <p class="custom-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam iaculis tellus in orci pharetra,
                         sit amet efficitur mauris aliquet. Duis eu libero vel leo vestibulum gravida quis at sapien. Sed
                         euismod laoreet risus, vel facilisis risus suscipit sed. Proin auctor commodo sapien in cursus.
                         Nullam vitae turpis vel massa bibendum posuere eget nec turpis. Pellentesque habitant morbi
                         tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-                    <button type="button" class="btn btn-outline-secondary text-light">Conozca mas</button>
+                    <button type="button" class="btn btn-outline-secondary btn-sm text-light">Conozca mas</button>
                 </div>
-
             </div>
         </section>
+        </div>
         <!-- Sección de Formulario para Disertantes -->
         <section>
-            <section class="container">
-                <div class="row">
-                    <div class="col">
-                        <p class="text-center mt-5 mb-3">CONVIERTETE EN UN</p>
-                        <h1 class="text-center mb-3">ORADOR</h1>
-                        <p class="text-center mb-2">Anótate como orador para dar una charla innite. Cuéntanos de qué
-                            quieres hablar!</p>
+            <div class="row" id="divbco"> 
+                <div class="col-md-12 bg-white">
+                    <div class="container-flex">
+                        <div class="row justify-content-center">
+                            <div class="col-6">
+                                <p class="text-center mt-5 mb-3">CONVIERTETE EN UN</p>
+                                <h2 class="text-center mb-3">ORADOR</h2>
+                                <p class="text-center mb-2">Anótate como orador para dar una charla ignite. Cuéntanos de qué
+                                    quieres hablar!</p>
+                            </div>
+                        </div>
+                        <div class="row justify-content-center">
+                            <div class="col-6">
+                                <form>
+                                    <div class="row mb-3">
+                                        <div class="col">
+                                            <input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre">
+                                        </div>
+                                        <div class="col">
+                                            <input type="text" class="form-control" placeholder="Apellido"
+                                                aria-label="Apellido">
+                                        </div>
+                                    </div>
+                                    <div class="mb-1">
+                                        <textarea class="form-control" placeholder="¿Sobre qué quieres hablar?"
+                                            aria-label="Mensaje"></textarea>
+                                    </div>
+                                    <p class="mb-3">Recuerda incluir un título para tu charla</p>
+                                    <div class="mb-3">
+                                        <button type="submit" class="btn btn-success w-100">Enviar</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col">
-                        <form>
-                            <div class="row mb-3">
-                                <div class="col">
-                                    <input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre">
-                                </div>
-                                <div class="col">
-                                    <input type="text" class="form-control" placeholder="Apellido"
-                                        aria-label="Apellido">
-                                </div>
-                            </div>
-                            <div class="mb-1">
-                                <textarea class="form-control" placeholder="¿Sobre qué quieres hablar?"
-                                    aria-label="Mensaje"></textarea>
-                            </div>
-                            <p class="mb-3">Recuerda incluir un título para tu charla</p>
-                            <button type="submit" class="btn btn-success w-100">Enviar</button>
-                        </form>
-                    </div>
-                </div>
-            </section>
+            </div>
         </section>
     </main>
-    <!-- Aquí esta el Footer -->
-    <footer>
+    <!--Aquí esta el Footer-->
+    <footer class="bg-secondary text-light custom-footer">
         <div class="container-flex">
-            <div class="row bg-secondary">
-                <div class="col-md-6 align-items-center">
-                    <p><a href=""></a>A</p>
-                    <p><a href=""></a>B</p>
-                </div>
-                <div class="col-md-6 align-text-center">
-                    <p><a href=""></a>C</p>
-                    <p><a href=""></a>D</p>
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="nav justify-content-center">
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="#">Preguntas Frecuentes</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="#">Contacto</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="#">Prensa</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="#">Conferencias</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="#">Términos y condiciones</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="#">Privacidad</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="#">Estudiantes</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
     </footer>
+    
     <!-- Enlace al archivo JavaScript de Bootstrap 5 -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js"></script>
-    <!-- Agregar scripts JavaScript -->
+    <!-- Scripts JavaScript -->
+    <script src="js/funcionalidad.js"></script>  
 </body>
 
 </html>
