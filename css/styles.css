@@ -45,9 +45,24 @@ min-height: 100%;
   height: 350px;
   font-size: large;
   align-self: auto;
+  background: linear-gradient(to right, hsl(197, 98%, 21%), #0b658f);
 }
+
 
 .custom-footer ul{
   margin-top: 30px;
   align-items: center;
 }
+
+#notapie{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+  }
+
+#botonera button{
+  width: 100%;
+
+}
+
+
