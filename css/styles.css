@@ -65,4 +65,13 @@ min-height: 100%;
 
 }
 
+/*CSS para ocultar flechas de campos numericos*/
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+ -webkit-appearance: none;
+ margin: 0;
+}
 
+input[type="number"] {
+ -webkit-appearance: textfield;
+}

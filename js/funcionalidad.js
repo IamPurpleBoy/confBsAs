@@ -60,28 +60,67 @@ function mostrarVacio(mostrar) {
     }
   }
 
+//funcion ocultar campos segun medio de pago
+const metodoPagoSelect = document.getElementById("transferencia");
+const codigoInput = document.getElementById("codigo");
+const vencimientoInput = document.getElementById("vencimiento");
+const debitoRadio = document.getElementById("debito");
+const creditoRadio = document.getElementById("credito");
+const tarjetaInput = document.getElementById("tarjeta");
+const datosBanco = document.getElementById("banco");
 
-// Obtener referencias a los elementos necesarios
-const resumenButton = document.querySelector('#resumen-btn');
-const totalAPagarElement = document.querySelector('#monto');
+metodoPagoSelect.addEventListener("change", toggleCampos);
+
+function toggleCampos() {
+ if (metodoPagoSelect.checked) {
+ codigoInput.style.display = "none";
+ vencimientoInput.style.display = "none";
+ tarjetaInput.style.display = "none";
+ //datosBanco.style.display = "block";
+ } else if (debitoRadio.checked || creditoRadio.checked) {
+  codigoInput.style.display = "block";
+ vencimientoInput.style.display = "block";
+ tarjetaInput.style.display = "block";
+ //datosBanco.style.display = "none";
+ }
+}
+
+// Event listeners para los radios de opción Débito y Crédito
+debitoRadio.addEventListener("change", toggleCampos);
+creditoRadio.addEventListener("change", toggleCampos);
+
 
 // Agregar un evento click al botón "Resumen"
-resumenButton.addEventListener('click', mostrarMonto);
+
 
 // Función para calcular y mostrar el total a pagar
-function mostrarMonto(event) {
-  event.preventDefault(); // Evitar que se envíe el formulario
 
-  // Obtener los valores seleccionados del formulario
-  const cantidadTickets = parseInt(document.getSelection('#cantidad').value);
-  const categoriaSeleccionada = document.getSelection('select').value;
-  
-  // Obtener el descuento correspondiente a la categoría seleccionada
-  const descuento = parseInt(document.querySelector(`option[value="${categoriaSeleccionada}"]`).dataset.category);
-  
-  // Calcular el total a pagar con el descuento
-  const totalAPagar = cantidadTickets * (1000 - descuento);
-  
-  // Mostrar el total a pagar en el elemento correspondiente
-  totalAPagarElement.textContent = `Total a Pagar: $${totalAPagar}`;
+const precioTicket= 1000;
+const cantidadTicketsInput = document.querySelector('#cantidad');
+const categoriaSelect = document.querySelector('#categoria');
+const totalAPagarElement = document.querySelector('#monto');
+
+cantidadTicketsInput.addEventListener('input', mostrarMonto);
+categoriaSelect.addEventListener('input', mostrarMonto);
+
+// Obtener los valores seleccionados del formulario
+function mostrarMonto() {
+ const cantidadTickets = parseInt(cantidadTicketsInput.value);
+ const categoriaSeleccionada = parseInt(categoriaSelect.value);
+ 
+ console.log("Categoria de comprador: ",categoriaSeleccionada);
+ console.log("Valor por entrada: ",precioTicket);
+ console.log("Cantidad de tickets: ", cantidadTickets);
+
+ // Obtener el descuento correspondiente a la categoría seleccionada
+ const descuento = (categoriaSeleccionada/100);
+ console.log(descuento)
+
+ // Calcular el total a pagar con el descuento
+ const totalSinDesc = cantidadTickets * precioTicket;
+ const totalAPagar = totalSinDesc -( totalSinDesc * descuento) ;
+ console.log(totalAPagar);
+
+ // Mostrar el total a pagar en el elemento correspondiente
+ totalAPagarElement.textContent = `Total a Pagar: $${totalAPagar} (Accede a un descuento del ${categoriaSeleccionada}%)`;
 }
