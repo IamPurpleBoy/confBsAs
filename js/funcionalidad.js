@@ -1,9 +1,15 @@
 
 // Obtener el elemento del formulario por su ID
 var emailInput = document.getElementById('email');
+var nombreInput = document.getElementById("nombre");
+var apellidoInput = document.getElementById('apellido');
+var dniInput = document.getElementById('dni');
 
 // Agregar un evento de escucha para la validación
 emailInput.addEventListener('blur', validarEmail);
+nombreInput.addEventListener('blur', validarFormulario);
+apellidoInput.addEventListener('blur', validarFormulario);
+dniInput.addEventListener('blur', validarFormulario);
 
 // Función de validación del correo electrónico
 function validarEmail() {
@@ -24,18 +30,16 @@ function validarEmail() {
 }
 
 function validarFormulario() {
-    var nombre = document.getElementById("nombre").value;
-    
-    if (nombre === "") {
-        alert("Por favor, ingrese su nombre.");
-        mostrarVacio(false);
-    }
-    
-    // Agrega validaciones adicionales para otros campos si es necesario
-    
-    mostrarVacio(true); // Si todos los campos están validados correctamente, permite enviar el formulario
-}
+  var apellido = nombreInput.value;
+  var apellido = apellidoInput.value;
+  var dni = dniInput.value;
 
+  if (nombre === '' || apellido === '' || email === '' || dni === '') {
+    mostrarVacio(true);
+  } else {
+    mostrarVacio(true);
+  }
+} 
 
 // Función para mostrar u ocultar el mensaje de error
 function mostrarError(mostrar) {
@@ -49,25 +53,26 @@ function mostrarError(mostrar) {
   }
 }
 
+//funcion para mostrar u ocultar el menssaje de Formulario vacio
 function mostrarVacio(mostrar) {
-    var mensajeError = document.getElementById('mensaje');
-    if (mostrar) {
-      mensajeError.textContent = 'El formulario no esta completo. Faltan datos';
-      mensajeError.style.display = 'block'; // Mostrar el mensaje de error
-    } else {
-      mensajeError.textContent = ''; // Limpiar el mensaje de error
-      mensajeError.style.display = 'none'; // Ocultar el mensaje de error
-    }
+  var mensajeError = document.getElementById('mensaje');
+  if (mostrar) {
+    mensajeError.textContent = 'El formulario no esta completo. Faltan datos';
+    mensajeError.style.display = 'block'; // Mostrar el mensaje de error
+  } else {
+    mensajeError.textContent = ''; // Limpiar el mensaje de error
+    mensajeError.style.display = 'none'; // Ocultar el mensaje de error
   }
+}
 
 //funcion ocultar campos segun medio de pago
-const metodoPagoSelect = document.getElementById("transferencia");
-const codigoInput = document.getElementById("codigo");
-const vencimientoInput = document.getElementById("vencimiento");
-const debitoRadio = document.getElementById("debito");
-const creditoRadio = document.getElementById("credito");
-const tarjetaInput = document.getElementById("tarjeta");
-const datosBanco = document.getElementById("banco");
+let metodoPagoSelect = document.getElementById("transferencia");
+let codigoInput = document.getElementById("codigo");
+let vencimientoInput = document.getElementById("vencimiento");
+let debitoRadio = document.getElementById("debito");
+let creditoRadio = document.getElementById("credito");
+let tarjetaInput = document.getElementById("tarjeta");
+let datosBanco = document.getElementById("banco");
 
 metodoPagoSelect.addEventListener("change", toggleCampos);
 
@@ -90,37 +95,64 @@ debitoRadio.addEventListener("change", toggleCampos);
 creditoRadio.addEventListener("change", toggleCampos);
 
 
-// Agregar un evento click al botón "Resumen"
+//Evento click al botón "Resumen"
+var resumenBtn = document.getElementById("resumen-btn");
+resumenBtn.addEventListener("click", validarCompra);
+
+function validarCompra() {
+    var nombre = nombreInput.value;
+    var apellido = apellidoInput.value;
+    var categoriaSeleccionada = categoriaSelect.options[categoriaSelect.selectedIndex].text;
+    var totalAPagar = totalAPagarElement.textContent.split(":")[1].trim();
+    
+
+    if (validarFormulario() == false) {
+        document.getElementById('mensaje').innerHTML = 'Todos los campos son obligatorios';
+        return false;
+    } else {
+        var mensaje =
+            "Estimado/a " + nombre + " " + apellido +
+            ", gracias por su participación en este evento. Usted ha comprado su boleto a un precio preferencial como " +
+            categoriaSeleccionada + ". El monto a pagar es " + totalAPagar + " con un descuento del " + categoriaSelect.value + "%. En breve recibira un e-mail con el boleto electronico  y su Factura de compra.";
+        alert(mensaje);
+        return true;
+    }
+}
 
 
 // Función para calcular y mostrar el total a pagar
-
 const precioTicket= 1000;
-const cantidadTicketsInput = document.querySelector('#cantidad');
-const categoriaSelect = document.querySelector('#categoria');
-const totalAPagarElement = document.querySelector('#monto');
+let cantidadTicketsInput = document.querySelector('#cantidad');
+let categoriaSelect = document.querySelector('#categoria');
+let totalAPagarElement = document.querySelector('#monto');
 
 cantidadTicketsInput.addEventListener('input', mostrarMonto);
 categoriaSelect.addEventListener('input', mostrarMonto);
 
 // Obtener los valores seleccionados del formulario
 function mostrarMonto() {
- const cantidadTickets = parseInt(cantidadTicketsInput.value);
- const categoriaSeleccionada = parseInt(categoriaSelect.value);
+let cantidadTickets = parseInt(cantidadTicketsInput.value);
+var categoriaSeleccionada = parseInt(categoriaSelect.value);
+
  
  console.log("Categoria de comprador: ",categoriaSeleccionada);
  console.log("Valor por entrada: ",precioTicket);
  console.log("Cantidad de tickets: ", cantidadTickets);
 
+
  // Obtener el descuento correspondiente a la categoría seleccionada
- const descuento = (categoriaSeleccionada/100);
+ var descuento = (categoriaSeleccionada/100);
  console.log(descuento)
 
  // Calcular el total a pagar con el descuento
- const totalSinDesc = cantidadTickets * precioTicket;
- const totalAPagar = totalSinDesc -( totalSinDesc * descuento) ;
+let totalSinDesc = cantidadTickets * precioTicket;
+var totalAPagar = totalSinDesc -( totalSinDesc * descuento) ;
  console.log(totalAPagar);
 
  // Mostrar el total a pagar en el elemento correspondiente
- totalAPagarElement.textContent = `Total a Pagar: $${totalAPagar} (Accede a un descuento del ${categoriaSeleccionada}%)`;
+ totalAPagarElement.textContent = `Total a Pagar: $${totalAPagar} (Descuento del ${categoriaSeleccionada}%)`;
 }
+
+
+
+
